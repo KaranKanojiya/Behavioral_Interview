@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F-02 · Story Bank Builder — Behavioral Interview</title>
+<link rel="stylesheet" href="../assets/canvas.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="breadcrumb"><a href="../index.html">Hub</a><span class="sep">›</span><a href="../index.html">Frameworks</a><span class="sep">›</span> Story Bank Builder</div>
+
+  <header class="hero">
+    <h1>Story Bank Builder — Your 8-10 Go-To Stories</h1>
+    <div class="sub">Prepare <b>8-10 versatile stories</b> that each cover 2-3 categories. Add stories below, tag categories, and watch the coverage matrix. Every category should have at least 2 stories. Data is stored in your browser (localStorage) — nothing is uploaded. Export to JSON to sync across devices.</div>
+    <div class="badges">
+      <span class="badge lvl">Tool · localStorage-backed</span>
+      <span class="badge">8-10 stories</span>
+      <span class="badge">7 categories to cover</span>
+    </div>
+  </header>
+
+  <div data-tabscope>
+    <div class="tabs">
+      <div class="tab active" data-tab="bank">Story Bank</div>
+      <div class="tab" data-tab="template">Story Template</div>
+      <div class="tab" data-tab="ideas">Story Ideas &amp; Practice Plan</div>
+    </div>
+
+    <!-- ============ TAB 1: STORY BANK ============ -->
+    <div class="tabpanel active" data-panel="bank">
+
+      <section>
+        <div class="sec-h"><span class="n">1</span><h2>Add a Story</h2><span class="tag">saved in your browser</span></div>
+        <div id="story-bank" class="sim">
+          <div class="star-field">
+            <label>Story title <span style="color:var(--warn);font-weight:400">*</span></label>
+            <input id="sb-title" type="text" placeholder="e.g. Elasticsearch 5→7 migration" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 12px;font:inherit;font-size:13.5px">
+          </div>
+          <div class="star-field" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end">
+            <div style="flex:1;min-width:200px">
+              <label>When (year · company · team)</label>
+              <input id="sb-when" type="text" placeholder="2023 · Autodesk · Fusion HomeTab" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 12px;font:inherit;font-size:13.5px">
+            </div>
+          </div>
+          <div class="star-field">
+            <label>One-liner (what happened in one sentence)</label>
+            <textarea id="sb-one" rows="2" placeholder="Led migration from ES5 to ES7 across 3 services with shadow traffic, zero regressions, 47% latency drop."></textarea>
+          </div>
+          <div class="star-field">
+            <label>Categories this covers <span style="color:var(--faint);font-weight:400;font-size:12px">— aim for 2-3 categories per story so it's versatile</span></label>
+            <div id="sb-cat-box" style="padding:8px 0"></div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" id="sb-add">Add story</button>
+            <button class="btn" id="sb-export">Export to JSON</button>
+            <button class="btn warn" id="sb-clear-all">Clear all</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-h"><span class="n">2</span><h2>Your Stories</h2></div>
+        <div id="sb-list"></div>
+      </section>
+
+      <section>
+        <div class="sec-h"><span class="n">3</span><h2>Coverage Matrix</h2><span class="tag">green = ≥2 stories</span></div>
+        <p class="muted">Every category should have at least 2 stories so you can pivot if one doesn't fit the specific question asked.</p>
+        <div id="sb-coverage" class="cov"></div>
+      </section>
+    </div>
+
+    <!-- ============ TAB 2: STORY TEMPLATE ============ -->
+    <div class="tabpanel" data-panel="template">
+
+      <section>
+        <div class="sec-h"><span class="n">1</span><h2>Full Story Template</h2></div>
+        <p class="muted">Use this template when writing each story out in full (in a doc, not here). Then copy just the title + one-liner + categories into the Story Bank above for quick reference during your loop prep.</p>
+
+        <div class="card">
+          <h3>Story #: [Short Title]</h3>
+          <p><b>One-liner:</b> [What happened in one sentence]</p>
+          <p><b>When:</b> [Year, company, team]</p>
+
+          <p><b>Categories this covers:</b></p>
+          <ul class="tight">
+            <li>Conflict Resolution</li>
+            <li>Failure &amp; Learning</li>
+            <li>Leadership &amp; Initiative</li>
+            <li>Ambiguity &amp; Decisions</li>
+            <li>Customer Obsession</li>
+            <li>Impact &amp; Results</li>
+            <li>Teamwork &amp; Collaboration</li>
+          </ul>
+
+          <p><b>Amazon LPs this maps to:</b></p>
+          <div>
+            <span class="pill">Customer Obsession</span>
+            <span class="pill">Ownership</span>
+            <span class="pill">Invent and Simplify</span>
+            <span class="pill">Are Right, A Lot</span>
+            <span class="pill">Learn and Be Curious</span>
+            <span class="pill">Hire and Develop the Best</span>
+            <span class="pill">Insist on Highest Standards</span>
+            <span class="pill">Think Big</span>
+            <span class="pill">Bias for Action</span>
+            <span class="pill">Frugality</span>
+            <span class="pill">Earn Trust</span>
+            <span class="pill">Dive Deep</span>
+            <span class="pill">Have Backbone; Disagree and Commit</span>
+            <span class="pill">Deliver Results</span>
+          </div>
+
+          <p style="margin-top:12px"><b>Google traits:</b></p>
+          <div>
+            <span class="pill value">Intellectual Humility</span>
+            <span class="pill value">Comfort with Ambiguity</span>
+            <span class="pill value">Collaborative Nature</span>
+            <span class="pill value">Challenging Status Quo</span>
+            <span class="pill value">Putting Users First</span>
+          </div>
+        </div>
+
+        <div class="grid g2" style="margin-top:14px">
+          <div class="card">
+            <h3><span class="star-tag s">S</span>ituation (2-3 sentences)</h3>
+            <p class="muted">Context: your role, the team, the project, the business stakes.</p>
+          </div>
+          <div class="card">
+            <h3><span class="star-tag t">T</span>ask (1-2 sentences)</h3>
+            <p class="muted">Your specific responsibility. What was expected of you?</p>
+          </div>
+          <div class="card">
+            <h3><span class="star-tag a">A</span>ction — 5-7 bullets (this is 60-70% of your answer)</h3>
+            <ol class="tight">
+              <li>First thing you did</li>
+              <li>How you analyzed / investigated</li>
+              <li>Key decision you made and <b>WHY</b></li>
+              <li>How you influenced / convinced others</li>
+              <li>Obstacle you overcame</li>
+              <li>How you executed</li>
+            </ol>
+          </div>
+          <div class="card">
+            <h3><span class="star-tag r">R</span>esult (quantified)</h3>
+            <ul class="tight">
+              <li>Primary metric: "Reduced X from Y to Z (N% improvement)"</li>
+              <li>Secondary impact: "Adopted by N teams"</li>
+              <li>Business impact: "Saved $X / increased revenue by Y%"</li>
+            </ul>
+          </div>
+          <div class="card" style="grid-column:1/-1">
+            <h3><span class="star-tag l">L</span>earnings (Google STAR-L)</h3>
+            <ul class="tight">
+              <li><b>What I learned:</b> [specific lesson]</li>
+              <li><b>What I'd do differently:</b> [specific change]</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ TAB 3: STORY IDEAS ============ -->
+    <div class="tabpanel" data-panel="ideas">
+
+      <section>
+        <div class="sec-h"><span class="n">1</span><h2>Story Ideas — Pull from Your Career</h2></div>
+        <p class="muted">Think about times you:</p>
+        <div class="grid g2">
+          <div class="card">
+            <ul class="tight">
+              <li>Shipped something you're proud of</li>
+              <li>Fixed a critical production incident</li>
+              <li>Disagreed with your manager or peer</li>
+              <li>Failed and recovered</li>
+              <li>Mentored someone junior</li>
+            </ul>
+          </div>
+          <div class="card">
+            <ul class="tight">
+              <li>Worked across teams</li>
+              <li>Made a difficult technical decision</li>
+              <li>Dealt with unclear requirements</li>
+              <li>Improved a process nobody asked you to fix</li>
+              <li>Advocated for the user against business pressure</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-h"><span class="n">2</span><h2>4-Week Practice Schedule</h2></div>
+        <table>
+          <thead><tr><th>Week</th><th>Activity</th></tr></thead>
+          <tbody>
+            <tr><td><b>Week 1</b></td><td>Write all 8-10 stories in the full template above. Fill in the Story Bank on tab 1.</td></tr>
+            <tr><td><b>Week 2</b></td><td>Practice solo — record yourself, time each story to under 2 minutes. Use the <a href="star-method.html">STAR Builder</a> to check pacing.</td></tr>
+            <tr><td><b>Week 3</b></td><td>Practice with a peer. Get feedback on clarity, "I" usage, and quantification.</td></tr>
+            <tr><td><b>Week 4</b></td><td>Practice adapting a single story to 3 different questions. Interviewers will re-ask variants of the same category.</td></tr>
+            <tr><td><b>Ongoing</b></td><td>Refine based on feedback. Update metrics if you remember better numbers.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <div class="sec-h"><span class="n">3</span><h2>Self-Check Before Your Loop</h2></div>
+        <ul class="checklist">
+          <li>I have 8-10 stories in the bank</li>
+          <li>Every category has at least 2 stories (check coverage matrix)</li>
+          <li>Each story is practiced to under 2 minutes</li>
+          <li>At least 2 stories are failure/learning stories</li>
+          <li>At least 2 stories are cross-team collaboration stories</li>
+          <li>Every story has real quantified results</li>
+          <li>I know which stories I'd use for each Amazon LP</li>
+          <li>I've mapped 3 stories to Google's core traits</li>
+          <li>I've calibrated each story to my target level (see Level Calibration)</li>
+          <li>I have a "backup" story for the "So what?" follow-up</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="sec-h"><span class="n">4</span><h2>Reusing a Story Across Questions</h2></div>
+        <div class="callout tip"><b>The versatile story pattern:</b> A single well-chosen story about a cross-team migration you led can answer <b>at least 5 different questions</b>:</div>
+        <ul class="tight">
+          <li>"Tell me about your biggest project" &rarr; <span class="pill quest">Impact &amp; Results</span></li>
+          <li>"Tell me about a time you led a cross-functional team" &rarr; <span class="pill quest">Teamwork</span></li>
+          <li>"Tell me about a time requirements were ambiguous" &rarr; <span class="pill quest">Ambiguity</span></li>
+          <li>"Tell me about a time you disagreed with a PM" &rarr; <span class="pill quest">Conflict</span></li>
+          <li>"Tell me about a time you delivered under pressure" &rarr; <span class="pill quest">Impact &amp; Results</span></li>
+        </ul>
+        <p class="muted" style="margin-top:8px">This is why you only need 8-10 stories, not 50. Emphasize different parts of the same story based on what the interviewer asked.</p>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <a href="../index.html">← Back to Hub</a> &middot; Source: <code>13-Story-Bank-Template.md</code> &middot;
+    Previous: <a href="star-method.html">← F-01 STAR Method</a> &middot; Next: <a href="../values/amazon-lps.html">V-01 Amazon LPs →</a>
+  </footer>
+
+</div>
+<script src="../assets/canvas.js"></script>
+</body>
+</html>
